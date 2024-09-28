@@ -82,7 +82,7 @@ public class Logic1
     old35(10) --> true
     old35(15) --> false */
     public boolean old35(int n) {
-         return (n % 3 == 0) ^ (n % 5 == 0);  // XOR operator ensures only one condition is true
+         return (n % 3 == 0) ^ (n % 5 == 0);  
     }
 
 
@@ -105,7 +105,6 @@ public class Logic1
     more20(42) --> true */
     public boolean more20(int n) {
           return (n % 20 == 1) || (n % 20 == 2);
-          //If the remainder is either 1 or 2, the number is 1 or 2 more than a multiple of 20.
     }
 
 
@@ -118,7 +117,6 @@ public class Logic1
     less20(20) --> false */
     public boolean less20(int n) {
           return (n % 20 == 18) || (n % 20 == 19);
-          //If the remainder is 18 or 19, the number is 2 or 1 less than a multiple of 20, respectively
     }
 
     /*Given a non-negative number "num", return true if num is within 2 of a multiple of 10.
@@ -130,7 +128,6 @@ public class Logic1
     nearTen(19) --> true */
     public boolean nearTen(int num) {
           return (num % 10 <= 2) || (num % 10 >= 8);
-          //If the remainder is between 0 and 2 (inclusive), or between 8 and 9 (inclusive), the number is within 2 of a multiple of 10.
     }
 
 
@@ -144,7 +141,6 @@ public class Logic1
     sortaSum(10, 11) --> 21*/
     public int sortaSum(int a, int b) {
           int sum = a + b;
-        // Check if the sum is in the forbidden range (10..19)
         if (sum >= 10 && sum <= 19) {
             return 20;
         }
@@ -161,11 +157,9 @@ public class Logic1
     in1To10(11, false) --> false
     in1To10(11, true) --> true */
     public boolean in1To10(int n, boolean outsideMode) {
-       // If outsideMode is true, return true if n is <= 1 or >= 10
         if (outsideMode) {
             return (n <= 1 || n >= 10);
         }
-        // Otherwise, return true if n is between 1 and 10, inclusive
         return (n >= 1 && n <= 10);
     }
 
@@ -178,11 +172,9 @@ public class Logic1
     teenSum(10, 13) --> 19
     teenSum(13, 2) --> 19 */
     public int teenSum(int a, int b) {
-        // Check  if a or b is in the "teen" range (13..19)
         if ((a >= 13 && a <= 19) || (b >= 13 && b <= 19)) {
             return 19;
         }
-        // Otherwise, return the sum of a and b
         return a + b;          
     }
    
@@ -197,7 +189,6 @@ public class Logic1
     love6(4, 5) --> false
     love6(1, 5) --> true */
     public boolean love6(int a, int b) {
-          // Check if either a or b is 6, or if their sum or absolute difference is 6
         return (a == 6 || b == 6 || a + b == 6 || Math.abs(a - b) == 6);
     }
 
@@ -211,12 +202,10 @@ public class Logic1
     lastDigit(23, 19, 12) --> false
     lastDigit(23, 19, 3) --> true */
     public boolean lastDigit(int a, int b, int c) {
-          // Get the rightmost digits of a, b, and c using the % operator
         int aRTMost = a % 10;
         int bRTMost = b % 10;
         int cRTMost = c % 10;
        
-        // Return true if two or more of the rightmost digits are the same
         return (aRTMost == bRTMost || aRTMost == cRTMost || bRTMost == cRTMost);    
     }
 
@@ -230,15 +219,12 @@ public class Logic1
     answerCell(false, false, true) --> false
     answerCell(true, false, false) --> false */
     public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
-        // In the morning, only answer if it's your mom calling
         if (isMorning) {
             return isMom;
         }
-        // If you're asleep, you don't answer
         if (isAsleep) {
             return false;
         }
-        // Otherwise, answer the phone
         return true;
     }
 
@@ -253,18 +239,15 @@ public class Logic1
     alarmClock(5, false) --> "7:00"
     alarmClock(0, false) --> "10:00" */
     public String alarmClock(int day, boolean vacation) {
-        // Check if it's a weekend (0 = Sunday, 6 = Saturday)
         boolean Weekend = (day == 0 || day == 6);
        
         if (vacation) {
-            // On vacation: "10:00" on weekdays, "off" on weekends
             if (Weekend) {
                 return "off";
             } else {
                 return "10:00";
             }
         } else {
-            // Not on vacation: "7:00" on weekdays, "10:00" on weekends
             if (Weekend) {
                 return "10:00";
             } else {
@@ -285,15 +268,12 @@ public class Logic1
     teaParty(3, 8) --> 0
     teaParty(20, 6) --> 2 */
     public int teaParty(int tea, int candy) {
-       // Bad party: If either tea or candy is less than 5, the party is always bad (0)
         if (tea < 5 || candy < 5) {
             return 0;
         }
-        // Great Party: If either tea or candy is at least double the amount of the other, the party is great (2)
         if (tea >= 2 * candy || candy >= 2 * tea) {
             return 2;
         }
-        // Good Party: Otherwise, the party is good (1)
         return 1;
     }
 
@@ -311,17 +291,16 @@ public class Logic1
     public int redTicket(int a, int b, int c) {
        
         if (a == 2 && b == 2 && c == 2) {
-            return 10;  // All are 2
+            return 10;  
         }
        
         else if (a == b && b == c) {
-            return 5;   // All are the same
+            return 5;   
         }
        
         else if (b != a && c != a) {
-            return 1;   // b and c are different from a
+            return 1; 
         }
-        // If none of the conditions match, return 0
         return 0;
     }
 
@@ -338,14 +317,14 @@ public class Logic1
     public int greenTicket(int a, int b, int c) {
        
         if (a == b && b == c) {
-            return 20;  // All are the same
+            return 20; 
         }
      
         else if (a == b || a == c || b == c) {
-            return 10;  // Two numbers are the same
+            return 10;  
         }
        
-        return 0;  // All are different
+        return 0;  
     }
 
 
@@ -361,11 +340,10 @@ public class Logic1
     squirrelPlay(95, false) --> false
     squirrelPlay(95, true) --> true    */
     public boolean squirrelPlay(int temp, boolean isSummer) {
-        // Define summer upper limit
         if (isSummer) {
-            return temp >= 60 && temp <= 100; // Upper limit is 100 in summer
+            return temp >= 60 && temp <= 100; 
         } else {
-            return temp >= 60 && temp <= 90;  // Upper limit is 90 otherwise
+            return temp >= 60 && temp <= 90;  
         }
     }    
 
@@ -385,15 +363,15 @@ public class Logic1
     public int caughtSpeeding(int speed, boolean isBirthday) {
    
         if (isBirthday) {
-            speed -= 5; // Allow an extra 5 mph
+            speed -= 5; 
         }
              
         if (speed <= 60) {
-            return 0; // No ticket
+            return 0; 
         } else if (speed >=61 && speed <= 80) {
-            return 1; // Small ticket
+            return 1; 
         } else {
-            return 2; // Big ticket
+            return 2; 
         }
 }
 
@@ -412,12 +390,12 @@ public class Logic1
     dateFashion(5, 5) --> 1    */
     public int dateFashion(int you, int date) {
         if (you >= 8 || date >= 8) {
-            return 2;  // Yes, get the table
+            return 2;  
         }
         else if (you <= 2 || date <= 2) {
-            return 0;  // No, do not get the table
+            return 0;  
         }
-        return 1;  // Maybe
+        return 1;  
     }
    
    
@@ -433,15 +411,15 @@ public class Logic1
     fizzString2(15) --> "FizzBuzz!"*/
     public String fizzString2(int n) {
         if (n % 3 == 0 && n % 5 == 0) {
-            return "FizzBuzz!";  // FizzBuzz for divisible by both
+            return "FizzBuzz!";  
         }
         else if (n % 3 == 0) {
-            return "Fizz!";  // Fizz for divisible by 3
+            return "Fizz!"; 
         }
         else if (n % 5 == 0) {
-            return "Buzz!";  // Buzz for divisible by 5
+            return "Buzz!";  
         }
-        return n + "!";  // Return the number followed by "!"
+        return n + "!"; 
     }
 
     /*When squirrels get together for a party, they like to have sodas.
@@ -455,12 +433,11 @@ public class Logic1
     sodaParty(70, true) --> true */
     public boolean sodaParty(int sodas, boolean isWeekend) {
         if (isWeekend) {
-            // On weekends, any number of sodas 40 or more is successful
             return sodas >= 40;
         } else {
-            // On weekdays, the number of sodas must be between 40 and 60 inclusive
             return sodas >= 40 && sodas <= 60;
         }
     }
 
 }
+
